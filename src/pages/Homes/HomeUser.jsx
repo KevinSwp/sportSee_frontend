@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import './homeUser.scss';
 
@@ -20,39 +19,34 @@ import Carbohydrate from "../../components/Aside/Carbohydrate/Carbohydrate";
 function HomeUser () {
     const { userId } = useParams();
   
-    useEffect(() => {
-      // Vous pouvez faire quelque chose avec userId ici, par exemple charger les données de l'utilisateur
-    }, [userId]);
-  
     return (
       <div>
         {userId ? (
-          <>
-            <header className='header'>
-              <Header />
-            </header>
-            <section className="blocInfos">
-              <article className="charts">
-                <div className="bloc1">
-                  <WeightChart />
-                </div>
-                <div className="bloc2">
-                  <LineChart />
-                  <RadarChart />
-                  <CircleProgress percentage={66} />
-                </div>
-              </article>
-              <aside className="aside">
-                <Calories />
-                <Protein />
-                <Carbohydrate />
-                <Lipid />
-              </aside>
-            </section>
-          </>
-        ) : (
-          <HomeDefault />
-        )}
+            <>
+                <header className='header'>
+                <Header />
+                </header>
+                <section className="blocInfos">
+                <article className="charts">
+                    <div className="bloc1">
+                    <WeightChart />
+                    </div>
+                    <div className="bloc2">
+                    <LineChart />
+                    <RadarChart />
+                    <CircleProgress percentage={66} />
+                    </div>
+                </article>
+                <aside className="aside">
+                    <Calories userId={userId} />
+                    <Protein userId={userId}/>
+                    <Carbohydrate userId={userId}/>
+                    <Lipid userId={userId}/>
+                </aside>
+                </section>
+            </>
+        ):(<HomeDefault />)
+        }
       </div>
     );
   }

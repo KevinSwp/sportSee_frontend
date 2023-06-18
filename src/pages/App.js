@@ -1,7 +1,9 @@
+// Import components react
 import { Route, Routes } from "react-router-dom";
+// Import scss
 import './body.scss';
 import '../components/Aside/aside.scss'
-
+// Import component created
 import HomeDefault from "./HomeDefault/HomeDefault";
 import HomeUser from "./Homes/HomeUser";
 import Profil from "./Profil/Profil";
@@ -11,6 +13,9 @@ import Error404 from "./Error404/Error404";
 
 import Nav from "../components/Nav/Nav";
 
+/**
+ * Function component App
+ */
 function App() {
   return (
     <div>
