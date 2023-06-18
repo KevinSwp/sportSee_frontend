@@ -2,7 +2,8 @@ import { Route, Routes } from "react-router-dom";
 import './body.scss';
 import '../components/Aside/aside.scss'
 
-import Home from "./Home/Home";
+import HomeDefault from "./HomeDefault/HomeDefault";
+import HomeUser from "./Homes/HomeUser";
 import Profil from "./Profil/Profil";
 import Community from "./Community/Community";
 import Parameter from "./Parameter/Parameter";
@@ -17,10 +18,13 @@ function App() {
         <Nav />
 
         <Routes>
-          <Route path="/" element={<Home />}/>
+          <Route path="/" element={<HomeDefault />} />
+          <Route path="/" element={<HomeUser />} />
+          <Route path="/user/:userId" element={<HomeUser />} />
           <Route path="/profil" element={<Profil />}/>
           <Route path="/parameter" element={<Parameter />}/>
           <Route path="/community" element={<Community />}/>
+          <Route path="/404" element={<Error404 />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
       </div>
