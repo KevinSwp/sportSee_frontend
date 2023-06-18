@@ -1,9 +1,15 @@
-.charts {
-    .bloc1{
-
+.blocInfos {
+    display: flex;
+    .charts {
+        .bloc1{
+            margin-bottom: 2rem;
+        }
+    
+        .bloc2 {
+            display: flex;
+        }
     }
 
-    .bloc2 {
-        display: flex;
+    .aside {
     }
 }

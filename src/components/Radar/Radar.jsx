@@ -26,10 +26,10 @@ const data = [
 
 function SimpleRadarChart() {
   return (
-    <RadarChart cx={300} cy={250} outerRadius={150} width={500} height={500} data={data}>
+    <RadarChart cx={150} cy={150} outerRadius={100} width={350} height={500} data={data}>
       <PolarGrid />
       <PolarAngleAxis dataKey="subject" />
-      <PolarRadiusAxis angle={30} domain={[0, 150]} />
+      <PolarRadiusAxis angle={30} domain={[60, 100]} />
       <Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
       <Radar name="Lily" dataKey="B" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.6} />
     </RadarChart>
