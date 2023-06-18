@@ -42,25 +42,23 @@ function Navigation () {
                 </div>
             </div>
             <div className="navigationLeft">
-                <div className="blocs">
-                    <div className="blocIcons">
-                        <div className="yogaIcon">
-                            <img src={yoga} alt="#" />
-                        </div>
-                        <div className="swimIcon">
-                            <img src={swim} alt="#" />
-                        </div>
-                        <div className="bikeIcon">
-                            <img src={bike} alt="#" />
-                        </div>
-                        <div className="muscuIcon">
-                            <img src={muscu} alt="#" />
-                        </div>
+                <div className="blocIcons">
+                    <div className="yogaIcon">
+                        <img src={yoga} alt="#" />
                     </div>
-
-                    <div className="text">
-                        <p>Copiryght, SportSee 2023</p>
+                    <div className="swimIcon">
+                        <img src={swim} alt="#" />
                     </div>
+                    <div className="bikeIcon">
+                        <img src={bike} alt="#" />
+                    </div>
+                    <div className="muscuIcon">
+                        <img src={muscu} alt="#" />
+                    </div>
+                </div>
+                
+                <div className="text">
+                    <p>Copiryght, SportSee 2023</p>
                 </div>
             </div>
         </div>

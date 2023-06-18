@@ -2,7 +2,7 @@
     .navigationTop {
         z-index: 2;
         display: flex;
-        position: absolute;
+        position: fixed;
         margin-bottom: 3rem;
         top: 0;
         right: 0;
@@ -44,7 +44,7 @@
     
     .navigationLeft {
         z-index: 1;
-        position: absolute;
+        position: fixed;
         left: 0;
         top: 0;
         bottom: 0;
@@ -55,27 +55,23 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-
-        .blocs {
-            position: relative;
             
-            .blocIcons {
-        
-                img {
-                    width: 55px;
-                    margin-bottom: 1rem;
-                }
+        .blocIcons {
+    
+            img {
+                width: 55px;
+                margin-bottom: 1rem;
             }
+        }
 
-            .text {
-                color: white;
-                transform: rotate(-90deg);
-                position: absolute;
-                font-size: x-small;
-                width: 200px;
-                margin-left: -4.5rem;
-                margin-top: 5rem;
-            }
+        .text {
+            color: white;
+            transform: rotate(-90deg);
+            position: absolute;
+            font-size: x-small;
+            bottom: 10rem;
+            left: -4rem;
+            width: 200px;
         }
     }
 }
