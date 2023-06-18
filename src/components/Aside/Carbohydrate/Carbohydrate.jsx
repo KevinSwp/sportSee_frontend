@@ -7,7 +7,7 @@ function Carbohydrate () {
                 <img src={carbIcone} alt="#" />
             </div>
             <div className='text'>
-                <p className='nb'>202g</p>
+                <p className='nb'>???g</p>
                 <p>Glucides</p>
             </div>
         </div>

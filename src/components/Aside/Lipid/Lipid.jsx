@@ -7,7 +7,7 @@ function Lipid () {
                 <img src={lipidIcone} alt="#" />
             </div>
             <div className='text'>
-                <p className='nb'>159g</p>
+                <p className='nb'>??g</p>
                 <p>Lipides</p>
             </div>
         </div>

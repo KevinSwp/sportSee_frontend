@@ -7,7 +7,7 @@ function Calories () {
                 <img src={calorieIcone} alt="#" />
             </div>
             <div className='text'>
-                <p className='nb'>1900kCal</p>
+                <p className='nb'>????kCal</p>
                 <p>Calories</p>
             </div>
         </div>

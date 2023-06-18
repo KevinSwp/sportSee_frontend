@@ -7,7 +7,7 @@ function Protein () {
                 <img src={proteinIcone} alt="#" />
             </div>
             <div className='text'>
-                <p className='nb'>19g</p>
+                <p className='nb'>???g</p>
                 <p>Proteines</p>
             </div>
         </div>
