@@ -5,10 +5,10 @@ import HomeDefault from "../HomeDefault/HomeDefault";
 
 import Header from "../../components/Header/Header";
 
-import WeightChart from "../../components/Article/Weight/Weight";
-import RadarChart from "../../components/Article/Radar/Radar";
-import LineChart from "../../components/Article/Goal/goal";
-import CircleProgress from "../../components/Article/Score/Score";
+import Activity from "../../components/Article/Activity/Activity";
+import Performance from "../../components/Article/Performance/Performance";
+import Session from "../../components/Article/Session/Session";
+import Score from "../../components/Article/Score/Score";
 
 import Calories from "../../components/Aside/Calorie/Calorie";
 import Lipid from "../../components/Aside/Lipid/Lipid";
@@ -29,12 +29,12 @@ function HomeUser () {
                 <section className="blocInfos">
                 <article className="charts">
                     <div className="bloc1">
-                    <WeightChart userId={userId}/>
+                    <Activity userId={userId}/>
                     </div>
                     <div className="bloc2">
-                    <LineChart />
-                    <RadarChart />
-                    <CircleProgress percentage={50} />
+                    <Session userId={userId}/>
+                    <Performance userId={userId}/>
+                    <Score userId={userId} />
                     </div>
                 </article>
                 <aside className="aside">

@@ -7,7 +7,7 @@ import { USER_ACTIVITY } from '../../../data/data';
 /**
  * Function weight chart userId as props
  */
-function WeightChart({ userId }) {
+function Activity({ userId }) {
     // Using useState to store the data that will be displayed on the chart
     const [data, setData] = useState([]);
     const [maxKg, setMaxKg] = useState(0);
@@ -51,4 +51,4 @@ function WeightChart({ userId }) {
     );
 }
 
-export default WeightChart;
+export default Activity;

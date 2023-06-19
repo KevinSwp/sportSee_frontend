@@ -1,25 +1,33 @@
 import React from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css'; // Importer le style
+import 'react-circular-progressbar/dist/styles.css';
 
-function CircleProgress({ percentage }) {
+import { USER_MAIN_DATA } from '../../../data/data';
+
+function Score({ userId }) {
+    // Find user ID
+    const user = USER_MAIN_DATA.find(u => u.id === parseInt(userId));
+
+    // Get todayScarore as %
+    const percentage = user ? user.todayScore * 100 : 0;
+
   return (
     <div style={{ width: '200px' }}>
-      <CircularProgressbar
-        value={percentage}
-        text={`${percentage}%`}
-        styles={buildStyles({
-          // Couleur du chemin et du texte
-          pathColor: `rgba(62, 152, 199, ${percentage / 100})`,
-          textColor: '#f88',
-          // Couleur de la trace, c'est-à-dire la partie du cercle non remplie
-          trailColor: '#d6d6d6',
-          // Couleur de fond
-          backgroundColor: '#3e98c7',
-        })}
-      />
+        <CircularProgressbar
+            // Progress bar
+            value={percentage}
+            // XX.XX% (toFixed(2) = deux 0)
+            text={`${percentage.toFixed(2)}%`}
+            styles={buildStyles({
+                pathColor: `rgba(255, 99, 71, ${percentage / 100})`,
+                textColor: 'black',
+                trailColor: '#d6d6d6',
+                backgroundColor: '#3e98c7',
+            })}
+        />
     </div>
   );
 }
 
-export default CircleProgress;
+export default Score;
+
