@@ -29,12 +29,12 @@ function HomeUser () {
                 <section className="blocInfos">
                 <article className="charts">
                     <div className="bloc1">
-                    <WeightChart />
+                    <WeightChart userId={userId}/>
                     </div>
                     <div className="bloc2">
                     <LineChart />
                     <RadarChart />
-                    <CircleProgress percentage={66} />
+                    <CircleProgress percentage={50} />
                     </div>
                 </article>
                 <aside className="aside">

@@ -15,7 +15,7 @@ import './header.scss';
 function Header () {
     // Get userId from the URL parameters
     const { userId } = useParams();
-    // Creating a state variable for the userName with its setter function. "' '" is use to be initialized on empty
+    // Creating a state variable for the userName with its setter function. "' '" initialized on empty
     const [userName, setUserName] = useState('');
     // Initializing the navigation hook
     const navigate = useNavigate();
