@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
 // Importing the user activity data
 import { USER_ACTIVITY } from '../../../data/data';
+// Importing component
+import CustomTooltip from './TooltipActivity';
 
 /**
  * Function weight chart userId as props
@@ -39,9 +41,9 @@ function Activity({ userId }) {
 
     return (
         <BarChart width={800} height={200} data={data}>
-            <Tooltip />
-            <XAxis dataKey="name" />
-            <YAxis yAxisId="left" orientation="right" domain={[0, 'dataMax']} ticks={Array.from({length: maxKg+1}, (_, i) => i)} />
+            <Tooltip content={<CustomTooltip />} />
+            <XAxis axisLine={false} tickLine={false} dataKey="name" />
+            <YAxis axisLine={false} tickLine={false} yAxisId="left" orientation="right" domain={[0, 'dataMax']} ticks={Array.from({length: maxKg+1}, (_, i) => i)} />
             <YAxis yAxisId="right" orientation="right" hide={true} />
             <CartesianGrid stroke="#f5f5f5" strokeDasharray="0"/>
             {/* <CartesianGrid stroke="#f5f5f5" strokeDasharray="0" strokeOpacity={0.5} /> */}

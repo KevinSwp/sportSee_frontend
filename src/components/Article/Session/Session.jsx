@@ -39,15 +39,15 @@ function Session({ userId }) {
   }, [userId]);  // useEffect dependency array
   
   return (
-    <LineChart width={350} height={290} data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5}}>
+    <LineChart width={260} height={250} data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5}}>
       {/* Displaying a grid for the chart */}
       <CartesianGrid strokeDasharray="0 1"/> 
       {/* Setting 'day' as the dataKey for the X-Axis */}
-      <XAxis dataKey="day" /> 
+      <XAxis dataKey="day" axisLine={false} tickLine={false}/> 
       {/* Setting the content for the Tooltip */}
       <Tooltip content={<CustomTooltip />}/> 
       {/* Displaying the line chart */}
-      <Line type="monotone" dataKey="sessionLength" stroke="#8884d8" activeDot={{ r: 8 }} /> 
+      <Line type="natural" dataKey="sessionLength" stroke="#8884d8" dot={false} /> 
     </LineChart>
   );
 }

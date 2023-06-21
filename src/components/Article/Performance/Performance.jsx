@@ -1,6 +1,6 @@
 // Import necessary libraries and components
 import React, { useEffect, useState } from 'react';
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from 'recharts';
 // Import the user performance data
 import { USER_PERFORMANCE } from '../../../data/data';
 
@@ -45,15 +45,16 @@ function Performance({ userId }) {
       // Update the state with the new data
       setData(userData);
     }
-  }, [userId]); // This effect depends on the userId prop
+  }, [userId]); // Effect depends on the userId prop
 
   return (
-    <RadarChart cx={150} cy={150} outerRadius={100} width={350} height={500} data={data}>
-      <PolarGrid />
-      <PolarAngleAxis dataKey="subject" />
-      <PolarRadiusAxis angle={30} domain={[0, 100]} />
-      <Radar name="Mike" dataKey="value" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
-    </RadarChart>
+    <div>
+      <RadarChart cx={125} cy={125} outerRadius={60} width={250} height={250} data={data}>
+        <PolarGrid />
+        <PolarAngleAxis dataKey="subject" />
+        <Radar dataKey="value" fill="red" fillOpacity={0.55} />
+      </RadarChart>
+    </div>
   );
 }
 

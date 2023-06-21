@@ -8,7 +8,7 @@ function CustomTooltip({ payload, active }) {
       return (
         <div style={{ backgroundColor: '#fff', padding: '5px', border: '1px solid #ccc' }}>
           {/* Displaying the value of the first element in payload as minutes */}
-          <p className="label">{`${payload[0].value} min.`}</p> 
+          <p className="label">{`${payload[0].value} min`}</p> 
         </div>
       );
     }

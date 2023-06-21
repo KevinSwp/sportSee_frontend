@@ -6,23 +6,23 @@ import { USER_MAIN_DATA } from '../../../data/data';
 
 function Score({ userId }) {
     // Find user ID
-    const user = USER_MAIN_DATA.find(u => u.id === parseInt(userId));
+    const user = USER_MAIN_DATA.find(users => users.id === parseInt(userId));
 
-    // Get todayScarore as %
+    // Get todayScore as %
     const percentage = user ? user.todayScore * 100 : 0;
 
   return (
-    <div style={{ width: '200px' }}>
+    <div>
         <CircularProgressbar
             // Progress bar
             value={percentage}
-            // XX.XX% (toFixed(2) = deux 0)
-            text={`${percentage.toFixed(2)}%`}
+            
+            text={`${percentage}%`} 
+
             styles={buildStyles({
-                pathColor: `rgba(255, 99, 71, ${percentage / 100})`,
+                pathColor: `rgba(255, 0, 0)`,
                 textColor: 'black',
-                trailColor: '#d6d6d6',
-                backgroundColor: '#3e98c7',
+                textSize : '0.5rem',
             })}
         />
     </div>

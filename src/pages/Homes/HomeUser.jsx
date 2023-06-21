@@ -20,34 +20,40 @@ function HomeUser () {
     const { userId } = useParams();
   
     return (
-      <div>
-        {userId ? (
-            <>
-                <header className='header'>
-                <Header />
-                </header>
-                <section className="blocInfos">
-                <article className="charts">
-                    <div className="bloc1">
-                    <Activity userId={userId}/>
-                    </div>
-                    <div className="bloc2">
-                    <Session userId={userId}/>
-                    <Performance userId={userId}/>
-                    <Score userId={userId} />
-                    </div>
-                </article>
-                <aside className="aside">
-                    <Calories userId={userId} />
-                    <Protein userId={userId}/>
-                    <Carbohydrate userId={userId}/>
-                    <Lipid userId={userId}/>
-                </aside>
-                </section>
-            </>
-        ):(<HomeDefault />)
-        }
-      </div>
+        <div>
+            {userId ? (
+                <>
+                    <header className='header'>
+                        <Header />
+                    </header>
+                    <section className="blocInfos">
+                        <article className="charts">
+                            <div className="bloc1">
+                                <Activity userId={userId}/>
+                            </div>
+                            <div className="bloc2">
+                                <div>
+                                    <Session userId={userId}/>
+                                </div>
+                                <div>
+                                    <Performance userId={userId}/>
+                                </div>
+                                <div>
+                                    <Score userId={userId} />
+                                </div>
+                            </div>
+                        </article>
+                        <aside className="aside">
+                            <Calories userId={userId} />
+                            <Protein userId={userId}/>
+                            <Carbohydrate userId={userId}/>
+                            <Lipid userId={userId}/>
+                        </aside>
+                    </section>
+                </>
+            ):(<HomeDefault />)
+            }
+        </div>
     );
   }
 
