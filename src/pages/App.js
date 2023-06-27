@@ -29,7 +29,7 @@ function App() {
           <Route path="/profil" element={<Profil />}/>
           <Route path="/parameter" element={<Parameter />}/>
           <Route path="/community" element={<Community />}/>
-          <Route path="/404" element={<Error404 />} />
+          {/* <Route path="/404" element={<Error404 />} /> */}
           <Route path="*" element={<Error404 />} />
         </Routes>
       </div>

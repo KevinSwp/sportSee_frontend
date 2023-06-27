@@ -1,18 +1,17 @@
 // Import components react
 import { Link } from "react-router-dom";
 
-import './homeDefault.scss'
-
-function HomeDefault () {
+function Home () {
     return (
         <div>
-            <p>Choisir un utilisateur</p>
-            <div className="userChoice">
+            <div>
                 <Link to="/user/12">User 12</Link>
+            </div>
+            <div>
                 <Link to="/user/18">User 18</Link>
             </div>
         </div>
     )
 }
 
-export default HomeDefault;
+export default Home;
