@@ -1,11 +1,11 @@
 // Import the SVG icon
 import lipidIcone from './lipid-icon.svg';
-// Import AsideUserData component
-import AsideUserData from '../AsideUserData';
+// Import AsideFactory component
+import AsideFactory from '../../../factories/AsideFactory';
 
 function Lipid ({ userId }) {
-    // Use the AsideUserData function to fetch the lipidCount
-    const lipids = AsideUserData(userId, 'lipidCount');
+    // Use the AsideFactory function to fetch the lipidCount
+    const lipids = AsideFactory(userId, 'lipidCount');
 
     return (
         <div className='bloc'>

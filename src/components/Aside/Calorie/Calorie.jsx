@@ -1,11 +1,11 @@
 // Import the SVG icon
 import calorieIcone from './calories-icon.svg';
-// Import AsideUserData component
-import AsideUserData from '../AsideUserData';
+// Import AsideFactory component
+import AsideFactory from '../../../factories/AsideFactory';
 
 function Calories ({ userId }) {
-    // Use the AsideUserData function to fetch the calorieCount
-    const calories = AsideUserData(userId, 'calorieCount');
+    // Use the AsideFactory function to fetch the calorieCount
+    const calories = AsideFactory(userId, 'calorieCount');
 
     return (
         <div className='bloc'>

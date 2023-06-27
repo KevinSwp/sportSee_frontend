@@ -1,11 +1,11 @@
 // Import the SVG icon
 import proteinIcone from './protein-icon.svg';
-// Import AsideUserData component
-import AsideUserData from '../AsideUserData';
+// Import AsideFactory component
+import AsideFactory from '../../../factories/AsideFactory';
 
 function Protein ({ userId }) {
-    // Use the AsideUserData function to fetch the proteinCount
-    const proteins = AsideUserData(userId, 'proteinCount');
+    // Use the AsideFactory function to fetch the proteinCount
+    const proteins = AsideFactory(userId, 'proteinCount');
 
     return (
         <div className='bloc'>

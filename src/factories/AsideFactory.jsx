@@ -1,12 +1,12 @@
 // Import useState and useEffect hooks from the React library
 import { useState, useEffect } from 'react';
 // Import constant data (USER_MAIN_DATA) from a local file
-import { USER_MAIN_DATA } from '../../data/data';
+import { USER_MAIN_DATA } from '../data/data';
 
 /**
- * Function component AsideUserData taking userId and key as arguments
+ * Function component AsideFactory taking userId and key as arguments
  */
-function AsideUserData(userId, key) {
+function AsideFactory(userId, key) {
     // data state is initialized with a default value of 0 using useState hook
     const [data, setData] = useState(0);
 
@@ -24,4 +24,4 @@ function AsideUserData(userId, key) {
     return data;
 }
 
-export default AsideUserData;
+export default AsideFactory;

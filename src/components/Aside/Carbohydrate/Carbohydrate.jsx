@@ -1,10 +1,10 @@
 // Import the SVG icon
 import carbIcone from './carbs-icon.svg';
-// Import AsideUserData component
-import useUserData from '../AsideUserData';
+// Import AsideFactory component
+import useUserData from '../../../factories/AsideFactory';
 
 function Carbohydrate ({ userId }) {
-    // Use the AsideUserData function to fetch the carbohydrateCount
+    // Use the AsideFactory function to fetch the carbohydrateCount
     const carbohydrates = useUserData(userId, 'carbohydrateCount');
 
     return (
