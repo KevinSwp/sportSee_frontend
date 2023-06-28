@@ -1,13 +1,17 @@
 .blocInfos {
     display: flex;
+    // width: 150px;
     .charts {
+        // align-self: center;
+        width: 75%;
         .bloc1{
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             background-color: #FBFBFB;
         }
     
         .bloc2 {
             display: flex;
+            justify-content: space-between;
         }
     }
 

@@ -6,7 +6,7 @@ function CustomTooltip({ payload, active }) {
     if (active && payload && payload.length) {
       // Render a custom tooltip box with session length in minutes
       return (
-        <div style={{ backgroundColor: '#fff', padding: '5px', border: '1px solid #ccc' }}>
+        <div style={{ backgroundColor: '#fff', padding: '0rem 1rem 0rem 1rem', border: '1px solid #ccc' }}>
           {/* Displaying the value of the first element in payload as minutes */}
           <p className="label">{`${payload[0].value} min`}</p> 
         </div>

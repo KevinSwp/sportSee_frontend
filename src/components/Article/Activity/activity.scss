@@ -1,0 +1,31 @@
+.bar {
+    .infoActivity{
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.7rem;
+        .kg_kCal {
+            display: flex;
+
+            .poids {
+                padding-right: 1.5rem;
+            }
+
+            .bulletPtPds{
+                color: black;
+                font-size: 1.5rem;
+                padding-right: 0.5rem;
+                vertical-align: middle;
+            }
+
+            .bulletPtKcal{
+                color: red;
+                font-size: 1.5rem;
+                padding-right: 0.5rem;
+                vertical-align: middle;
+            }
+        }
+    }
+    background-color: #FBFBFB;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}

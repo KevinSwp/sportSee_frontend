@@ -4,7 +4,7 @@
 function CustomTooltip({ payload, active }) {
     if (active && payload && payload.length) {
       return (
-        <div style={{ backgroundColor: 'red', padding: '5px', border: '0px' }}>
+        <div style={{ backgroundColor: 'red', padding: '5px', border: '0px', color: 'white' }}>
           {/* First item in the payload array */}
           <p className="label">{`${payload[0].value} kg`}</p>
           {/* Second item in the payload array */}

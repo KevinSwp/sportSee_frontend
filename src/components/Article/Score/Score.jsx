@@ -1,23 +1,32 @@
 import React from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import ScoreFactory from '../../../factories/ScoreFactory';  // Import your custom hook here
+import ScoreFactory from '../../../factories/ScoreFactory';
+
+import './score.scss';
 
 function Score({ userId }) {
-    // Use the custom hook here
     const { percentage } = ScoreFactory({ userId });
 
     return (
-        <div>
-            <CircularProgressbar
-                value={percentage}
-                text={`${percentage}%`} 
-                styles={buildStyles({
-                    pathColor: `rgba(255, 0, 0)`,
-                    textColor: 'black',
-                    textSize : '0.5rem',
-                })}
-            />
+        <div className='circle'>
+            <p className='text'>Score</p>
+            <div style={{ position: 'relative' }}>
+            <div className='circleProgress' style={{ transform: 'scaleX(-1)' }}>
+                    <CircularProgressbar
+                        value={percentage}
+                        styles={buildStyles({
+                            pathColor: `rgba(255, 0, 0)`,
+                        })}
+                    />
+                </div>
+
+                <div style={{ position: 'absolute', top: '30%', width: '100%', textAlign: 'center' }}>
+                    <span className='pourcentage'>{`${percentage}%`}</span> <br />
+                    <span style={{ fontSize: '1rem', color: 'black' }}>de votre <br /> 
+                    objectif</span>
+                </div>
+            </div>
         </div>
     );
 }

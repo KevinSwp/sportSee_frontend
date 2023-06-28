@@ -1,0 +1,23 @@
+.circle {
+    position: relative;
+    background-color: #FBFBFB;
+    border-radius: 0.5rem;
+    height: 152px;
+    padding: 2rem;
+
+    .text {
+        position: absolute;
+        top: 1px;
+        left: 1.5rem;
+    }
+
+    svg {
+        width: 150px;
+    }
+
+    .pourcentage {
+        font-weight: bolder;
+        font-size: 1.5rem;
+    }
+    
+}
