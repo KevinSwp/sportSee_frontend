@@ -11,7 +11,7 @@ function Activity({ userId }) {
     return (
         <div className='bar'>
             <div className='infoActivity'>
-                <p>Activité quotidienne</p>
+                <p><strong>Activité quotidienne</strong></p>
                 <div className='kg_kCal'>
                     <p className='poids'><span className='bulletPtPds'>•</span>Poids (kg)</p>
                     <p><span className='bulletPtKcal'>•</span>Calories brûlées (kCal)</p>

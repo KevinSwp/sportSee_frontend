@@ -11,6 +11,8 @@ import Community from "./Community/Community";
 import Parameter from "./Parameter/Parameter";
 import Error404 from "./Error404/Error404";
 
+import DevelopperActivity from "./Developer/Activity/Dev_Activity";
+
 import Nav from "../components/Nav/Nav";
 
 /**
@@ -29,7 +31,9 @@ function App() {
           <Route path="/profil" element={<Profil />}/>
           <Route path="/parameter" element={<Parameter />}/>
           <Route path="/community" element={<Community />}/>
-          {/* <Route path="/404" element={<Error404 />} /> */}
+
+          <Route path="/user/:userId/activity" element={<DevelopperActivity />}/>
+
           <Route path="*" element={<Error404 />} />
         </Routes>
       </div>

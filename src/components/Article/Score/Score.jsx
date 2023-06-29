@@ -17,6 +17,7 @@ function Score({ userId }) {
                         value={percentage}
                         styles={buildStyles({
                             pathColor: `rgba(255, 0, 0)`,
+                            trailColor: '#FBFBFB',
                         })}
                     />
                 </div>
