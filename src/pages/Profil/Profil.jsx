@@ -1,10 +1,13 @@
 import './profil.scss';
+import Layout from '../../components/Layout/Layout';
 
 function Profil () {
     return (
-        <div>
-            PROFIL
-        </div>
+        <Layout>
+            <div>
+                PROFIL
+            </div>
+        </Layout>
     )
 }
 

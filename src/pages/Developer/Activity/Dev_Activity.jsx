@@ -1,11 +1,19 @@
-import React , {useState} from "react"
+import React from "react"
 import { useParams } from "react-router-dom";
 import useFetch from "../../../hooks/useFetch";
+import ActivityFactory, { ActivityFactoryType } from "../../../factories/ActivityFactory"
+// import '../bodyDev.scss';
 
 function Activity () {
     const { userId } = useParams();
 
-    const { data, isLoading, isError } = useFetch(`http://localhost:3000/data/activity.json`)
+    const fetchPath = process.env.REACT_APP_ENVIRONMENT === 'debug' ? `/data/activity.json` : `/user/${userId}/activity`
+    const fullFetchUrl = process.env.REACT_APP_HOST + fetchPath
+
+    const { data, isLoading, isError } = useFetch(
+        fullFetchUrl,
+        ActivityFactory,
+        ActivityFactoryType.API_V1)
 
     if(isLoading) {
         return <p>Chargement en cours...</p>
@@ -15,7 +23,7 @@ function Activity () {
         return <p>Une erreur est survenue...</p>
     }
 
-    return <>{JSON.stringify(data)}</>
+    return <pre>{JSON.stringify(data, null, 2)}</pre>
 }
 
 export default Activity

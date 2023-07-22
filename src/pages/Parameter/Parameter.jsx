@@ -1,10 +1,13 @@
 import './parameter.scss';
+import Layout from '../../components/Layout/Layout';
 
 function Parameter () {
     return (
-        <div>
-            REGLAGE
-        </div>
+        <Layout>
+            <div>
+                REGLAGE
+            </div>
+        </Layout>
     )
 }
 

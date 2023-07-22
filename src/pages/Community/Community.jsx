@@ -1,10 +1,13 @@
+import Layout from '../../components/Layout/Layout';
 import './community.scss';
 
-function Community () {
+function Community() {
     return (
-        <div>
-            COMMUNAUTE
-        </div>
+        <Layout>
+            <div>
+                COMMUNAUTE
+            </div>
+        </Layout>
     )
 }
 
