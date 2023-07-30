@@ -6,7 +6,7 @@ import SessionFactory, { SessionFactoryType } from "../../../factories/SessionFa
 function Session () {
     const { userId } = useParams();
 
-    const fetchPath = process.env.REACT_APP_ENVIRONMENT === 'debug' ? `/data/session.json` : `/user/${userId}/session`
+    const fetchPath = process.env.REACT_APP_ENVIRONMENT === 'debug' ? `/data/${userId}/session.json` : `/user/${userId}/session`
     const fullFetchUrl = process.env.REACT_APP_HOST + fetchPath
 
     const { data, isLoading, isError } = useFetch(

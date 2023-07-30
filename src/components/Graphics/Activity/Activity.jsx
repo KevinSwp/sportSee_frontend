@@ -9,28 +9,35 @@ import './activity.scss';
 
 function Activity({ userId }) {
 
-    const fetchPath = process.env.REACT_APP_ENVIRONMENT === 'debug' ? `/data/activity.json` : `/user/${userId}/activity`
+    const fetchPath = process.env.REACT_APP_ENVIRONMENT === 'debug' ? `/data/${userId}/activity.json` : `/user/${userId}/activity`
     const fullFetchUrl = process.env.REACT_APP_HOST + fetchPath
 
-    const { data: activity , isLoading, isError } = useFetch(
+    const { data: activity, isLoading, isError } = useFetch(
         fullFetchUrl,
         ActivityFactory,
         ActivityFactoryType.API_V1,
-        1000)
+        1500)
 
 
-    if(isLoading) {
-        return <p>Chargement en cours...</p>
+    if (isLoading) {
+        return (
+            <div className="loader">
+                <div className="dot"></div>
+                <div className="dot"></div>
+                <div className="dot"></div>
+            </div>
+        )
     }
 
-    if(isError){
+
+    if (isError) {
         return <p>Une erreur est survenue...</p>
     }
 
     return (
         <div className='bar'>
             <div className='infoActivity'>
-                <p className="">Activité quotidienne</p>
+                <p className="daily_activity">Activité quotidienne</p>
                 <div className='kg_kCal'>
                     <p className='poids'><span className='bulletPtPds'>•</span>Poids (kg)</p>
                     <p><span className='bulletPtKcal'>•</span>Calories brûlées (kCal)</p>
@@ -39,9 +46,9 @@ function Activity({ userId }) {
             <BarChart width={700} height={180} data={activity.data}>
                 <Tooltip content={<CustomTooltip />} />
                 <XAxis axisLine={false} tickLine={false} dataKey="name" />
-                <YAxis axisLine={false} tickLine={false} yAxisId="left" orientation="right" domain={['dataMax']} ticks={Array.from({length: activity.maxKg + 1}, (_, i) => i)} />
+                <YAxis axisLine={false} tickLine={false} yAxisId="left" orientation="right" domain={['dataMax']} ticks={Array.from({ length: activity.maxKg + 1 }, (_, i) => i)} />
                 <YAxis yAxisId="right" orientation="right" hide={true} />
-                <CartesianGrid stroke="#f5f5f5" strokeDasharray="0"/>
+                <CartesianGrid stroke="#f5f5f5" strokeDasharray="0" />
                 <Bar yAxisId="left" dataKey="kg" fill="#000000" barSize={5} radius={[10, 10, 0, 0]} />
                 <Bar yAxisId="right" dataKey="kCal" fill="#E60000" barSize={5} radius={[10, 10, 0, 0]} />
             </BarChart>

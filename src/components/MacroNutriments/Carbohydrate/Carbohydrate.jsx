@@ -5,7 +5,7 @@ import carbIcone from './carbs-icon.svg';
 // Import AsideFactory component
 import useMainData from '../../../factories/useAsideFactory';
 
-function Carbohydrate ({ userId }) {
+function Carbohydrate({ userId }) {
     // Use the AsideFactory function to fetch the carbohydrateCount
     const carbohydrates = useMainData(userId, 'carbohydrateCount');
 
@@ -15,7 +15,7 @@ function Carbohydrate ({ userId }) {
         if (carbohydrates !== 0) {
             const timer = setTimeout(() => {
                 setIsLoading(false);
-            }, 1000);
+            }, 1500);
 
             return () => clearTimeout(timer);
         }
@@ -28,7 +28,11 @@ function Carbohydrate ({ userId }) {
             </div>
             <div className='text'>
                 {isLoading ? (
-                    <p>Chargement en cours...</p>
+                    <div className="loaders">
+                        <div className="dots"></div>
+                        <div className="dots"></div>
+                        <div className="dots"></div>
+                    </div>
                 ) : (
                     <>
                         <p className='nb'>{carbohydrates}g</p>

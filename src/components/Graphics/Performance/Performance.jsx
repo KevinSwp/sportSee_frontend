@@ -7,20 +7,26 @@ import PerformanceFactory, { PerformanceFactoryType } from "../../../factories/P
 import './performance.scss';
 
 function Performance({ userId }) {
-    const fetchPath = process.env.REACT_APP_ENVIRONMENT === 'debug' ? `/data/performance.json` : `/user/${userId}/performance`
+    const fetchPath = process.env.REACT_APP_ENVIRONMENT === 'debug' ? `/data/${userId}/performance.json` : `/user/${userId}/performance`
     const fullFetchUrl = process.env.REACT_APP_HOST + fetchPath
 
     const { data: performance, isLoading, isError } = useFetch(
         fullFetchUrl,
         PerformanceFactory,
         PerformanceFactoryType.API_V1,
-        3000)
-  
-    if(isLoading) {
-        return <p>Chargement en cours...</p>
+        2000)
+
+    if (isLoading) {
+        return (
+            <div className="load">
+                <div className="dot"></div>
+                <div className="dot"></div>
+                <div className="dot"></div>
+            </div>
+        )
     }
 
-    if(isError){
+    if (isError) {
         return <p>Une erreur est survenue...</p>
     }
 
@@ -28,7 +34,7 @@ function Performance({ userId }) {
         <div className='radar'>
             <RadarChart cx={110} cy={110} outerRadius={70} width={215} height={215} data={performance.data}>
                 <PolarGrid />
-                <PolarAngleAxis dataKey="subject" stroke="white" tick={{ fontSize: 9 }}/>
+                <PolarAngleAxis dataKey="subject" stroke="white" tick={{ fontSize: 9 }} />
                 <Radar dataKey="value" fill="red" fillOpacity={0.55} />
             </RadarChart>
         </div>

@@ -27,7 +27,9 @@ function Main() {
             })
             .then(json => {
                 // Find the user in the data
-                const user = json.data;
+                // const user = json.data;
+                const user = json.data.find(user => user.userId.toString() === userId);
+
                 // If the user exists and the user's ID matches the ID from the environment variable,
                 // set the user's name to be the user's first name
                 if (user && user.userId.toString() === userId) {

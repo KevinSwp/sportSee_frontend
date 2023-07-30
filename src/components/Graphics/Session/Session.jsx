@@ -7,31 +7,37 @@ import SessionFactory, { SessionFactoryType } from '../../../factories/SessionFa
 import './session.scss';
 
 function Session({ userId }) {
-    const fetchPath = process.env.REACT_APP_ENVIRONMENT === 'debug' ? `/data/session.json` : `/user/${userId}/session`
+    const fetchPath = process.env.REACT_APP_ENVIRONMENT === 'debug' ? `/data/${userId}/session.json` : `/user/${userId}/session`
     const fullFetchUrl = process.env.REACT_APP_HOST + fetchPath
 
     const { data: session, isLoading, isError } = useFetch(
         fullFetchUrl,
         SessionFactory,
         SessionFactoryType.API_V1,
-        2000)
+        2500)
 
-    if(isLoading) {
-        return <p>Chargement en cours...</p>
+    if (isLoading) {
+        return (
+            <div className="load">
+                <div className="dot"></div>
+                <div className="dot"></div>
+                <div className="dot"></div>
+            </div>
+        )
     }
 
-    if(isError){
+    if (isError) {
         return <p>Une erreur est survenue...</p>
     }
 
     return (
         <div className='line'>
-            <p className='text'>Durée moyenne des <br/> sessions</p>
-            <LineChart width={215} height={100} data={session.sessions} margin={{ top: 0, right: 0, left: 0, bottom: 0}}>
-                <CartesianGrid strokeDasharray="0 1"/>
-                <XAxis dataKey="day" axisLine={false} tickLine={false} interval={0}/>
-                <Tooltip content={<CustomTooltip />}/>
-                <Line type="natural" dataKey="sessionLength" stroke="#fff" dot={false}/> 
+            <p className='text'>Durée moyenne des <br /> sessions</p>
+            <LineChart width={215} height={100} data={session.sessions} margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
+                <CartesianGrid strokeDasharray="0 1" />
+                <XAxis dataKey="day" axisLine={false} tickLine={false} interval={0} />
+                <Tooltip content={<CustomTooltip />} />
+                <Line type="natural" dataKey="sessionLength" stroke="#fff" dot={false} />
             </LineChart>
         </div>
     );

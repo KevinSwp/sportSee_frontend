@@ -5,7 +5,7 @@ import proteinIcone from './protein-icon.svg';
 // Import AsideFactory component
 import useAsideFactory from '../../../factories/useAsideFactory';
 
-function Protein ({ userId }) {
+function Protein({ userId }) {
     // Use the AsideFactory function to fetch the proteinCount
     const proteins = useAsideFactory(userId, 'proteinCount');
 
@@ -15,7 +15,7 @@ function Protein ({ userId }) {
         if (proteins !== 0) {
             const timer = setTimeout(() => {
                 setIsLoading(false);
-            }, 1000);
+            }, 1500);
 
             return () => clearTimeout(timer);
         }
@@ -28,7 +28,11 @@ function Protein ({ userId }) {
             </div>
             <div className='text'>
                 {isLoading ? (
-                    <p>Chargement en cours...</p>
+                    <div className="loaders">
+                        <div className="dots"></div>
+                        <div className="dots"></div>
+                        <div className="dots"></div>
+                    </div>
                 ) : (
                     <>
                         <p className='nb'>{proteins}g</p>

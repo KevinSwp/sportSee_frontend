@@ -6,7 +6,7 @@ import MainFactory, { MainFactoryType } from "../../../factories/MainFactory";
 function Main () {
     const { userId } = useParams();
 
-    const fetchPath = process.env.REACT_APP_ENVIRONMENT === 'debug' ? `/data/main.json` : `/user/${userId}/main`
+    const fetchPath = process.env.REACT_APP_ENVIRONMENT === 'debug' ? `/data/${userId}/main.json` : `/user/${userId}/main`
     const fullFetchUrl = process.env.REACT_APP_HOST + fetchPath
 
     const { data, isLoading, isError } = useFetch(

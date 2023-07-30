@@ -5,6 +5,8 @@ import calorieIcone from './calories-icon.svg';
 // Import the custom hook useAsideFactory from the factories directory
 import useAsideFactory from '../../../factories/useAsideFactory';
 
+import '../macroNutriments.scss';
+
 // Define a functional component Calories that receives a userId as prop
 function Calories({ userId }) {
     // Define a local state variable isLoading with initial value true
@@ -23,7 +25,7 @@ function Calories({ userId }) {
             // This is to simulate a loading delay
             const timer = setTimeout(() => {
                 setIsLoading(false);
-            }, 1000);
+            }, 1500);
 
             // Return a cleanup function to clear the timeout when the component unmounts
             // or before the next time the effect runs
@@ -39,9 +41,13 @@ function Calories({ userId }) {
                 <img src={calorieIcone} alt="#" />
             </div>
             <div className='text'>
-                {/* Use a conditional rendering to either display a loading message or the actual calorie count */}
+                {/* Use a conditional rendering to either display a loading animation or the actual calorie count */}
                 {isLoading ? (
-                    <p>Chargement en cours...</p>
+                    <div className="loaders">
+                        <div className="dots"></div>
+                        <div className="dots"></div>
+                        <div className="dots"></div>
+                    </div>
                 ) : (
                     <>
                         <p className='nb'>{calories}kCal</p>

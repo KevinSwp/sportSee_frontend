@@ -6,7 +6,7 @@ import PerformanceFactory, { PerformanceFactoryType } from "../../../factories/P
 function Performance () {
     const { userId } = useParams();
 
-    const fetchPath = process.env.REACT_APP_ENVIRONMENT === 'debug' ? `/data/performance.json` : `/user/${userId}/performance`
+    const fetchPath = process.env.REACT_APP_ENVIRONMENT === 'debug' ? `/data/${userId}/performance.json` : `/user/${userId}/performance`
     const fullFetchUrl = process.env.REACT_APP_HOST + fetchPath
 
     const { data, isLoading, isError } = useFetch(

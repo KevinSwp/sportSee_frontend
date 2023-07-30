@@ -1,22 +1,19 @@
 class Performance {
     constructor(object) {
         this.userId = object.userId;
-        this.data = this.exempleUpdateData(object.data, object.kind)
-        // this.data = data.data.map(item => ({
-            // subject: this.translateKind(item.kind),
-            // value: item.value,
-        // }));
+        this.kind = object.kind;
+        this.data = this.updateData(object.data);
     }
 
-    exempleUpdateData (data, kind){
+    updateData(data) {
         return data.map(item => {
             return {
                 ...item,
-                subject : kind[item.kind]
+                subject: this.translateKind(this.kind[item.kind])
             }
         })
     }
-    /*
+
     translateKind(kind) {
         const kindTranslate = {
             'cardio': 'Cardio',
@@ -26,10 +23,10 @@ class Performance {
             'speed': 'Vitesse',
             'intensity': 'Intensité'
         };
-      
+
         // Return translate if it exists, else return the original term
         return kindTranslate[kind] || kind;
-    }*/
+    }
 }
 
 export default Performance;

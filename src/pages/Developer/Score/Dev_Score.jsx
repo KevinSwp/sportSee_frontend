@@ -6,7 +6,7 @@ import ScoreFactory, { ScoreFactoryType } from "../../../factories/ScoreFactory"
 function Score () {
     const { userId } = useParams();
 
-    const fetchPath = process.env.REACT_APP_ENVIRONMENT === 'debug' ? `/data/score.json` : `/user/${userId}/score`
+    const fetchPath = process.env.REACT_APP_ENVIRONMENT === 'debug' ? `/data/${userId}/score.json` : `/user/${userId}/score`
     const fullFetchUrl = process.env.REACT_APP_HOST + fetchPath
 
     const { data, isLoading, isError } = useFetch(

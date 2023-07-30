@@ -7,7 +7,7 @@ import ActivityFactory, { ActivityFactoryType } from "../../../factories/Activit
 function Activity () {
     const { userId } = useParams();
 
-    const fetchPath = process.env.REACT_APP_ENVIRONMENT === 'debug' ? `/data/activity.json` : `/user/${userId}/activity`
+    const fetchPath = process.env.REACT_APP_ENVIRONMENT === 'debug' ? `/data/${userId}/activity.json` : `/user/${userId}/activity`
     const fullFetchUrl = process.env.REACT_APP_HOST + fetchPath
 
     const { data, isLoading, isError } = useFetch(
