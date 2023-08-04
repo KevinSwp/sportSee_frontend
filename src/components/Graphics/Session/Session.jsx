@@ -35,7 +35,7 @@ function Session({ userId }) {
             <p className='text'>Durée moyenne des <br /> sessions</p>
             <LineChart width={215} height={100} data={session.sessions} margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="0 1" />
-                <XAxis dataKey="day" axisLine={false} tickLine={false} interval={0} />
+                <XAxis dataKey="day" axisLine={false} tickLine={false} interval={0} tick={{ fill: 'white' }} padding={{ left: 20, right: 20 }}/>
                 <Tooltip content={<CustomTooltip />} />
                 <Line type="natural" dataKey="sessionLength" stroke="#fff" dot={false} />
             </LineChart>
