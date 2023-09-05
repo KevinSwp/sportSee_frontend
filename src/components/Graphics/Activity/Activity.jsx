@@ -1,6 +1,7 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
 import CustomTooltip from './TooltipActivity';
+import { ReferenceLine } from 'recharts';
 
 import useFetch from "../../../hooks/useFetch";
 import ActivityFactory, { ActivityFactoryType } from "../../../factories/ActivityFactory"
@@ -45,8 +46,9 @@ function Activity({ userId }) {
             </div>
             <BarChart width={700} height={180} data={activity.data}>
                 <Tooltip content={<CustomTooltip />} />
-                <XAxis axisLine={false} tickLine={false} dataKey="name" />
-                <YAxis axisLine={false} tickLine={false} yAxisId="left" orientation="right" domain={['dataMax']} ticks={Array.from({ length: activity.maxKg + 1 }, (_, i) => i)} />
+                <ReferenceLine yAxisId="left" y={0} stroke="black" strokeDasharray="1 0" />
+                <XAxis axisLine={false} tickLine={false} dataKey="name" margin={{ left: 0 }} />
+                <YAxis axisLine={false} tickLine={false} yAxisId="left" orientation="right" domain={[0, 'dataMax']} ticks={Array.from({ length: activity.maxKg + 1 }, (_, i) => i)} />
                 <YAxis yAxisId="right" orientation="right" hide={true} />
                 <CartesianGrid stroke="#f5f5f5" strokeDasharray="0" />
                 <Bar yAxisId="left" dataKey="kg" fill="#000000" barSize={5} radius={[10, 10, 0, 0]} />

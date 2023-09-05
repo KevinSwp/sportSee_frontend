@@ -17,7 +17,7 @@ class Performance {
     translateKind(kind) {
         const kindTranslate = {
             'cardio': 'Cardio',
-            'energy': 'Énergie',
+            'energy': 'Energie',
             'endurance': 'Endurance',
             'strength': 'Force',
             'speed': 'Vitesse',
