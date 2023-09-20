@@ -4,31 +4,31 @@
     "sessions": [
       {
         "day": 1,
-        "sessionLength": 30
+        "sessionLength": 20
       },
       {
         "day": 2,
-        "sessionLength": 40
+        "sessionLength": 60
       },
       {
         "day": 3,
-        "sessionLength": 80
-      },
-      {
-        "day": 4,
         "sessionLength": 30
       },
       {
+        "day": 4,
+        "sessionLength": 70
+      },
+      {
         "day": 5,
-        "sessionLength": 120
+        "sessionLength": 40
       },
       {
         "day": 6,
-        "sessionLength": 50
+        "sessionLength": 30
       },
       {
         "day": 7,
-        "sessionLength": 200
+        "sessionLength": 70
       }
     ]
   }

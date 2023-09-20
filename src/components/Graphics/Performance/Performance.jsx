@@ -32,7 +32,7 @@ function Performance({ userId }) {
 
     return (
         <div className='radar'>
-            <RadarChart cx={110} cy={110} outerRadius={70} width={215} height={215} data={performance.data}>
+            <RadarChart cx={95} cy={100} outerRadius={60} width={190} height={190} data={performance.data}>
                 <PolarGrid />
                 <PolarAngleAxis dataKey="subject" stroke="white" tick={{ fontSize: 9 }} />
                 <Radar dataKey="value" fill="red" fillOpacity={0.55} />

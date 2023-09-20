@@ -48,7 +48,7 @@ function Main() {
 
     // Render the component
     return (
-        <div>
+        <div className="blocMain">
             <h1 className='h1'>Bonjour <span className='userName'>{userName}</span></h1>
             <p className='text'>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
         </div>

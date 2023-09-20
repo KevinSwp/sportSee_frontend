@@ -44,12 +44,12 @@ function Activity({ userId }) {
                     <p><span className='bulletPtKcal'>•</span>Calories brûlées (kCal)</p>
                 </div>
             </div>
-            <BarChart width={700} height={180} data={activity.data}>
+            <BarChart width={600} height={180} data={activity.data}>
                 <Tooltip content={<CustomTooltip />} />
                 <ReferenceLine yAxisId="left" y={0} stroke="black" strokeDasharray="1 0" />
-                <XAxis axisLine={false} tickLine={false} dataKey="name" margin={{ left: 0 }} />
-                <YAxis axisLine={false} tickLine={false} yAxisId="left" orientation="right" domain={[0, 'dataMax']} ticks={Array.from({ length: activity.maxKg + 1 }, (_, i) => i)} />
-                <YAxis yAxisId="right" orientation="right" hide={true} />
+                <XAxis axisLine={{ stroke: 'rgba(255,255,255,1)' }} strokeDasharray="0" tickLine={false} dataKey="name" margin={{ left: 0 }} />
+                <YAxis axisLine={false} dy={20} tickLine={false} yAxisId="left" orientation="right" domain={[0, 'dataMax']} ticks={Array.from({ length: activity.maxKg + 1 }, (_, i) => i)} />
+                <YAxis yAxisId="right" dx={20} orientation="right" hide={true} />
                 <CartesianGrid stroke="#f5f5f5" strokeDasharray="0" />
                 <Bar yAxisId="left" dataKey="kg" fill="#000000" barSize={5} radius={[10, 10, 0, 0]} />
                 <Bar yAxisId="right" dataKey="kCal" fill="#E60000" barSize={5} radius={[10, 10, 0, 0]} />
