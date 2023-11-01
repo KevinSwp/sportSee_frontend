@@ -4,6 +4,7 @@ import 'react-circular-progressbar/dist/styles.css';
 
 import useFetch from "../../../hooks/useFetch";
 import ScoreFactory, { ScoreFactoryType } from '../../../factories/ScoreFactory';
+import LoadingOrErrorComponent from '../../../utils/loader';
 
 import './score.scss';
 
@@ -17,18 +18,8 @@ function Score({ userId }) {
         ScoreFactoryType.API_V1,
         3000)
 
-    if (isLoading) {
-        return (
-            <div className="load">
-                <div className="dot"></div>
-                <div className="dot"></div>
-                <div className="dot"></div>
-            </div>
-        )
-    }
-
-    if (isError) {
-        return <p>Une erreur est survenue...</p>
+    if (isLoading || isError) {
+        return <LoadingOrErrorComponent isLoading={isLoading} isError={isError} />
     }
 
     return (
@@ -38,6 +29,7 @@ function Score({ userId }) {
                 <div className='circleProgress' style={{ transform: 'scaleX(-1)' }}>
                     <CircularProgressbar
                         value={score.todayScore}
+                        strokeWidth={6}
                         styles={buildStyles({
                             pathColor: `rgba(255, 0, 0)`,
                             trailColor: '#FBFBFB',
@@ -45,10 +37,12 @@ function Score({ userId }) {
                     />
                 </div>
 
-                <div style={{ position: 'absolute', top: '30%', width: '100%', textAlign: 'center' }}>
-                    <span className='pourcentage'>{`${score.todayScore}%`}</span> <br />
-                    <span style={{ fontSize: '1rem', color: 'black' }}>de votre <br />
-                        objectif</span>
+                <div className='pourcentageCircle'>
+                    <div className='pourcentagePadding'>
+                        <span className='pourcentage'>{`${score.todayScore}%`}</span> <br />
+                        <span style={{ fontSize: '0.8rem', color: '#74798C', fontWeight:'bold' }}>de votre <br />
+                            objectif</span>
+                    </div>
                 </div>
             </div>
         </div>

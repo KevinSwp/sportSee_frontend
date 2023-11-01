@@ -1,19 +1,32 @@
 import React from 'react';
 
+/**
+ * 
+ */
 const useHover = (session) => {
     const [hoverIndex, setHoverIndex] = React.useState(null);
 
+    /**
+     * 
+     */
     const handleMouseMove = (e) => {
         if (e) {
             setHoverIndex(e.activeTooltipIndex);
         }
     };
 
+    /**
+     * 
+     */
     const handleMouseLeave = () => {
         setHoverIndex(null);
     };
 
+    /**
+     * 
+     */
     const gradientOffset = () => {
+        
         if (!session.sessions.length || hoverIndex === null || hoverIndex >= session.sessions.length || hoverIndex < 0) {
             return '0%';
         }

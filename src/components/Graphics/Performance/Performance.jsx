@@ -3,6 +3,7 @@ import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from 'recharts';
 
 import useFetch from "../../../hooks/useFetch";
 import PerformanceFactory, { PerformanceFactoryType } from "../../../factories/PerformanceFactory";
+import LoadingOrErrorComponent from '../../../utils/loader';
 
 import './performance.scss';
 
@@ -16,26 +17,16 @@ function Performance({ userId }) {
         PerformanceFactoryType.API_V1,
         2000)
 
-    if (isLoading) {
-        return (
-            <div className="load">
-                <div className="dot"></div>
-                <div className="dot"></div>
-                <div className="dot"></div>
-            </div>
-        )
-    }
-
-    if (isError) {
-        return <p>Une erreur est survenue...</p>
+    if (isLoading || isError) {
+        return <LoadingOrErrorComponent isLoading={isLoading} isError={isError} />
     }
 
     return (
         <div className='radar'>
             <RadarChart cx={95} cy={100} outerRadius={60} width={190} height={190} data={performance.data}>
                 <PolarGrid />
-                <PolarAngleAxis dataKey="subject" stroke="white" tick={{ fontSize: 9 }} />
-                <Radar dataKey="value" fill="red" fillOpacity={0.55} />
+                <PolarAngleAxis dataKey="subject" stroke="white" tick={{ fontSize: 9 }} tickLine={false} axisLine={false} />
+                <Radar dataKey="value" fill="#FF0101B2" fillOpacity={1} />
             </RadarChart>
         </div>
     );

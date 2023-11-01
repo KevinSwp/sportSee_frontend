@@ -4,6 +4,7 @@ import useFetch from "../../../hooks/useFetch";
 import CustomTooltip from './TooltipSession';
 import SessionFactory, { SessionFactoryType } from '../../../factories/SessionFactory';
 import useHover from './useHover';
+import LoadingOrErrorComponent from '../../../utils/loader';
 
 import './session.scss';
 
@@ -19,19 +20,8 @@ function Session({ userId }) {
 
     const { handleMouseMove, handleMouseLeave, /*gradientOffset*/ } = useHover(session);
 
-
-    if (isLoading) {
-        return (
-            <div className="load">
-                <div className="dot"></div>
-                <div className="dot"></div>
-                <div className="dot"></div>
-            </div>
-        )
-    }
-
-    if (isError) {
-        return <p>Une erreur est survenue...</p>
+    if (isLoading || isError) {
+        return <LoadingOrErrorComponent isLoading={isLoading} isError={isError} />
     }
 
     const CustomCursorArea = ({ points }) => {
@@ -60,7 +50,7 @@ function Session({ userId }) {
 
                 <CartesianGrid strokeDasharray="0 1" />
 
-                <XAxis dataKey="day" axisLine={false} tickLine={false} interval={0} tick={{ fill: 'white', opacity: 0.7, fontSize: '0.6rem' }} padding={{ left: 20, right: 20 }} />
+                <XAxis dataKey="day" axisLine={false} tickLine={false} interval={0} tick={{ fill: 'white', opacity: 0.7, fontSize: '0.6rem' }} padding={{ left: 10, right: 10 }} />
 
                 <Tooltip content={<CustomTooltip />} cursor={<CustomCursorArea />} />
 

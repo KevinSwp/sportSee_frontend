@@ -13,8 +13,7 @@ function useFetch(url, Factory, type, timer = 1000) {
     // isError indicates whether an error occurred, initially set to false
     const [isError, setIsError] = useState(false);
 
-    // useEffect hook is used to perform side effects in function components
-    // In this case, it's used to fetch data from the API
+    // fetch data from the API
     useEffect(() => {
         // setTimeout is used to delay the fetch request by timer milliseconds
         // The ID returned by setTimeout is saved to timeoutId
@@ -40,6 +39,7 @@ function useFetch(url, Factory, type, timer = 1000) {
                 .catch(error => {
                     // If an error occurs, set isError to true and log the error to the console
                     setIsError(true);
+                    setIsLoading(false);
                     console.error(error);
                 });
         }, timer);

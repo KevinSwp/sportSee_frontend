@@ -5,12 +5,15 @@ import { ReferenceLine } from 'recharts';
 
 import useFetch from "../../../hooks/useFetch";
 import ActivityFactory, { ActivityFactoryType } from "../../../factories/ActivityFactory"
+import LoadingOrErrorComponent from '../../../utils/loaderActivity';
 
 import './activity.scss';
 
 function Activity({ userId }) {
 
     const fetchPath = process.env.REACT_APP_ENVIRONMENT === 'debug' ? `/data/${userId}/activity.json` : `/user/${userId}/activity`
+    // const fetchPath = 'URL_INCORRECTE';
+
     const fullFetchUrl = process.env.REACT_APP_HOST + fetchPath
 
     const { data: activity, isLoading, isError } = useFetch(
@@ -19,20 +22,8 @@ function Activity({ userId }) {
         ActivityFactoryType.API_V1,
         1500)
 
-
-    if (isLoading) {
-        return (
-            <div className="loader">
-                <div className="dot"></div>
-                <div className="dot"></div>
-                <div className="dot"></div>
-            </div>
-        )
-    }
-
-
-    if (isError) {
-        return <p>Une erreur est survenue...</p>
+    if (isLoading || isError) {
+        return <LoadingOrErrorComponent isLoading={isLoading} isError={isError} />
     }
 
     return (
@@ -46,13 +37,14 @@ function Activity({ userId }) {
             </div>
             <BarChart width={600} height={180} data={activity.data}>
                 <Tooltip content={<CustomTooltip />} />
-                <ReferenceLine yAxisId="left" y={0} stroke="black" strokeDasharray="1 0" />
-                <XAxis axisLine={{ stroke: 'rgba(255,255,255,1)' }} strokeDasharray="0" tickLine={false} dataKey="name" margin={{ left: 0 }} />
-                <YAxis axisLine={false} dy={20} tickLine={false} yAxisId="left" orientation="right" domain={[0, 'dataMax']} ticks={Array.from({ length: activity.maxKg + 1 }, (_, i) => i)} />
-                <YAxis yAxisId="right" dx={20} orientation="right" hide={true} />
-                <CartesianGrid stroke="#f5f5f5" strokeDasharray="0" />
-                <Bar yAxisId="left" dataKey="kg" fill="#000000" barSize={5} radius={[10, 10, 0, 0]} />
-                <Bar yAxisId="right" dataKey="kCal" fill="#E60000" barSize={5} radius={[10, 10, 0, 0]} />
+                <ReferenceLine yAxisId="left" />
+                <XAxis axisLine={{ stroke: 'rgba(255,255,255,1)' }} strokeDasharray="0" tickLine={false} dataKey="name" margin={{ left: 0 }} dy={15} tick={{ fill: '#9B9EAC' }}/>
+                <YAxis axisLine={false} dy={20} tickLine={false}  yAxisId="left" orientation="right" domain={['dataMin', 'dataMax']} tickCount="4" dx={15}  tick={{ fill: '#9B9EAC' }}/>
+                {/* <YAxis axisLine={false} dy={20} tickLine={false}  yAxisId="left" orientation="right" domain={['dataMin', 'dataMax']} tickCount="4" ticks={Array.from({ length: activity.maxKg + 1 }, (_, i) => i)} dx={15}/> */}
+                <YAxis yAxisId="right" orientation="right" hide={true}/>
+                <CartesianGrid vertical={false} strokeDasharray="1 1" />
+                <Bar yAxisId="left" dataKey="kg" fill="#000000" barSize={6} radius={[50, 50, 0, 0]} />
+                <Bar yAxisId="right" dataKey="kCal" fill="#E60000" barSize={6} radius={[50, 50, 0, 0]} />
             </BarChart>
         </div>
     );

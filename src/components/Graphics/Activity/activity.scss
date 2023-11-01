@@ -11,22 +11,29 @@
         .kg_kCal {
             display: flex;
 
+            p {
+                // font-size: 0.65rem;
+                margin-top: 0;
+                color: #74798C;
+                font-weight: bold;
+            }
+
             .poids {
                 padding-right: 1.5rem;
             }
 
             .bulletPtPds{
                 color: black;
-                font-size: 1.5rem;
+                font-size: 1.8rem;
                 padding-right: 0.5rem;
-                vertical-align: middle;
+                vertical-align: sub;
             }
 
             .bulletPtKcal{
                 color: red;
-                font-size: 1.5rem;
+                font-size: 1.8rem;
                 padding-right: 0.5rem;
-                vertical-align: middle;
+                vertical-align: sub;
             }
         }
     }
@@ -45,8 +52,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 263px;
-    width: 735px;
+    height: 261.91px;
+    width: 625px;
 
     .dot {
         background-color: #000;
